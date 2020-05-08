@@ -119,6 +119,8 @@ app.post('/calc',
       "prob": (parseFloat(req.body.p8) / 100.0)
     };
 
+    console.log(distribution);
+
     // Calculations
     for (let [key, value] of Object.entries(distribution)) {
       distribution[key].stats = {};
