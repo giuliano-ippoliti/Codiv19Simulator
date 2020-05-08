@@ -1,0 +1,23 @@
+* launch an EC2 instance
+* install node: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-up-node-on-ec2-instance.html
+* Add #!/usr/bin/env node at the beginning of app.js
+* chmod +x app.js
+
+* create /usr/lib/systemd/system/covidapp.service with this content
+[Unit]
+Description=Covid app
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/ec2-user/Covid19Simulator/app.js
+Restart=on-failure
+User=ec2-user
+Environment=PATH=/home/ec2-user/.nvm/versions/node/v14.2.0/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/ec2-user/.local/bin:/home/ec2-user/bin
+Group=ec2-user
+WorkingDirectory=/home/ec2-user/Covid19Simulator
+
+[Install]
+WantedBy=multi-user.target
+
+* to see logs: journalctl -e -u covidapp.service
