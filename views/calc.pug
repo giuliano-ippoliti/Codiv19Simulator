@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1 #{title}
+  h5 Results
+  table(style='width:100%', border='1')
+    tr
+      th contamination_rate
+      th avg_deaths
+      th prob_no_death
+      th prob_no_death
+    each rate in [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
+      tr
+        td #{rate}
+        td #{result[rate].avg_deaths}
+        td #{result[rate].prob_no_death}%
+        td #{result[rate].prob_death}%
+
+  br
+  a(href="/") Back

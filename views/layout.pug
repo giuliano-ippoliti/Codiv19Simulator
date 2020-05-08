@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title Simulator
+    // chargement des CSS
+    link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet' href='/css/style.css')
+  body
+    .container
+      // d'abord affichage des messages
+      // https://pugjs.org/language/code.html
+      // inline JavaScript code
+      // Unescaped buffered code starts with !=.
+      // It evaluates the JavaScript expression and outputs the result.
+      // https://github.com/visionmedia/express-messages
+      != messages('message', locals)
+      // https://pugjs.org/language/iteration.html
+      // each val, key in {1: 'one', 2: 'two', 3: 'three'}
+      if errors
+        each error, i in errors
+          div(class="alert alert-danger") #{error.msg}
+      // affichage du bloc de contenu (via les fils)
+      block content
+      br
+      // hr : ligne de rupture
+      hr
+      footer
+        p Copyright &copy; 2020
+    // chargement des scripts dans la dernière partie du body
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/js/main.js')

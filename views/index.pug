@@ -1,0 +1,55 @@
+extends layout
+
+block content
+  h1 #{title}
+  form(method='POST',action='/calc')
+    #form-group
+      label 10-19:
+      input.form-control(name='t1', type='text')
+      label Prob:
+      input.form-control(name='p1', type='text', value='0.2%')
+    br
+    #form-group
+      label 20-29:
+      input.form-control(name='t2', type='text')
+      label Prob:
+      input.form-control(name='p2', type='text', value='0.2%')
+    br
+    #form-group
+      label 30-39:
+      input.form-control(name='t3', type='text')
+      label Prob:
+      input.form-control(name='p3', type='text', value='0.2%')
+    br
+    #form-group
+      label 40-49:
+      input.form-control(name='t4', type='text')
+      label Prob:
+      input.form-control(name='p4', type='text', value='0.4%')
+    br
+    #form-group
+      label 50-59:
+      input.form-control(name='t5', type='text')
+      label Prob:
+      input.form-control(name='p5', type='text', value='1.3%')
+    br
+    #form-group
+      label 60-69:
+      input.form-control(name='t6', type='text')
+      label Prob:
+      input.form-control(name='p6', type='text', value='3.6%')
+    br
+    #form-group
+      label 70-79:
+      input.form-control(name='t7', type='text')
+      label Prob:
+      input.form-control(name='p7', type='text', value='8.0%')
+    br
+    #form-group
+      label 80+:
+      input.form-control(name='t8', type='text')
+      label Prob:
+      input.form-control(name='p8', type='text', value='14.8%')
+    br
+    br
+    input.btn.btn-primary(type='submit',value='Submit')
