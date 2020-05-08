@@ -40,40 +40,48 @@ app.set('view engine', 'pug');
 // Home route
 app.get('/', (req, res) => {
   res.render('index', {
-    title:'Age distribution',
+    title:'Distribution des ages',
   });
 });
 
 // Add route
 app.get('/calc', function(req, res) {
   res.render('calc', {
-    title:'Calculations'
+    title:'Résultats'
   });
 });
 
 // Submit route (withMessage logs server-side)
 app.post('/calc',
  [
-  check('t1').isNumeric().withMessage('Number required'),
-  check('t2').isNumeric().withMessage('Number required'),
-  check('t3').isNumeric().withMessage('Number required'),
-  check('t4').isNumeric().withMessage('Number required'),
-  check('t5').isNumeric().withMessage('Number required'),
-  check('t6').isNumeric().withMessage('Number required'),
-  check('t7').isNumeric().withMessage('Number required'),
-  check('t8').isNumeric().withMessage('Number required'),
+  check('t1').isNumeric().withMessage('Nombre requis'),
+  check('t2').isNumeric().withMessage('Nombre requis'),
+  check('t3').isNumeric().withMessage('Nombre requis'),
+  check('t4').isNumeric().withMessage('Nombre requis'),
+  check('t5').isNumeric().withMessage('Nombre requis'),
+  check('t6').isNumeric().withMessage('Nombre requis'),
+  check('t7').isNumeric().withMessage('Nombre requis'),
+  check('t8').isNumeric().withMessage('Nombre requis'),
+  check('p1').isNumeric().withMessage('Nombre requis'),
+  check('p2').isNumeric().withMessage('Nombre requis'),
+  check('p3').isNumeric().withMessage('Nombre requis'),
+  check('p4').isNumeric().withMessage('Nombre requis'),
+  check('p5').isNumeric().withMessage('Nombre requis'),
+  check('p6').isNumeric().withMessage('Nombre requis'),
+  check('p7').isNumeric().withMessage('Nombre requis'),
+  check('p8').isNumeric().withMessage('Nombre requis'),
  ],
   (req,res,next) => {
 
   const errors = validationResult(req);
-
+  console.log(errors);
   let distribution = {};
 
   if (!errors.isEmpty()) {
     console.log(errors);
-    res.render('calc',
+    res.render('index',
       {
-        title:'Calculations',
+        title:'Résultats',
         errors: errors.mapped()
       });
   }
@@ -160,8 +168,9 @@ app.post('/calc',
 
     res.render('calc',
       {
-        title:'Calculations',
-        result:result
+        title:'Résultats',
+        result:result,
+        distribution: distribution
       });
   }
 });

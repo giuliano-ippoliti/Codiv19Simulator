@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title Simulator
+    title Simulateur Covid19
     // chargement des CSS
     link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet' href='/css/style.css')
@@ -21,11 +21,14 @@ html
           div(class="alert alert-danger") #{error.msg}
       // affichage du bloc de contenu (via les fils)
       block content
-      br
       // hr : ligne de rupture
       hr
       footer
+        p
+          a(href='https://www.worldometers.info/coronavirus/coronavirus-age-sex-demographics/') Taux de mortalité de référence
         p Copyright &copy; 2020
+        p
+          a(href='https://fr.linkedin.com/in/ippoliti/') Giuliano IPPOLITI
     // chargement des scripts dans la dernière partie du body
     script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
     script(src='/bower_components/jquery/dist/jquery.js')
