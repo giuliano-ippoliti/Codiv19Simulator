@@ -178,6 +178,6 @@ app.post('/calc',
 });
 
 // Start server
-app.listen(3000, () => {
-  console.log('Server startd on port 3000...');
+app.listen(8080, () => {
+  console.log('Server startd on port 8080...');
 });

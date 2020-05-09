@@ -1,0 +1,8 @@
+* Install Azure extensions into Visual Studio Code (https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)
+
+* change the listen port to 8080, otherwise HTTP pings do not work and the provisioned container doesn't start
+
+* Click the upload button for uploading to Azure (https://docs.microsoft.com/fr-fr/azure/app-service/app-service-web-get-started-nodejs)
+
+* Add the WEBSITES_PORT (with a value of 8080) into the Application configuration (App service >  App service plan > App)
+
